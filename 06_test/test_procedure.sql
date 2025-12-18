@@ -1,5 +1,6 @@
 
--- test the procedures 
+
+--7 test the procedures 
 -- Product type 
 -- created collection type and stored the input values to test and process
 
@@ -13,10 +14,19 @@ null, -- should raise error
 'Desk ', --new product type with space at the end. - empty spaces should be removed and saved. 
 'Shelf'  --Shelf- new product type - Should get saved
 );
+  v_status  NUMBER;
+  v_message VARCHAR2(4000);
 BEGIN
   for i in 1..i_prod_type.count loop
   --dbms_output.put_line(i_prod_type(i));
-  product.product_pkg.p_ins_product_type(i_prod_type(i));
+      product.product_pkg.p_ins_product_type(
+      p_prod_type_name => i_prod_type(i),
+      o_status         => v_status,
+      o_message        => v_message
+    );
+      DBMS_OUTPUT.PUT_LINE('Row ' || i ||' | Status = ' || v_status ||' | Message = ' || v_message);
+
+    
   end loop;
 END;
 /
@@ -38,10 +48,20 @@ null, --  should raise error
 'Brown ',  --new Colour with space at the end. - empty spaces should be removed and saved. 
 'Beige' --Beige- new Colour - Should get saved
 );
+
+  v_status  NUMBER;
+  v_message VARCHAR2(4000);
 BEGIN
   for i in 1..i_colour.count loop
   --dbms_output.put_line(i_prod_type(i));
-  product.product_pkg.p_ins_colour(i_colour(i));
+     product.product_pkg.p_ins_colour(
+      p_col_name => i_colour(i),
+      o_status      => v_status,
+      o_message     => v_message
+    );
+
+      DBMS_OUTPUT.PUT_LINE('Row ' || i ||' | Status = ' || v_status ||' | Message = ' || v_message);
+
   end loop;
 END;
 /
@@ -69,11 +89,22 @@ t_product_info('Office Chair',1,1), -- existing product name , new product type 
 t_product_info('Dining Table',3,5), -- existing product name , existing product type no, new col no - sucess-colour should get added to product
 t_product_info('Home Desk',6,6)     -- new product information - sucess
 );
-
+    
+ -- OUT variables
+  v_status  NUMBER;
+  v_message VARCHAR2(4000);
+  
 BEGIN
   for i in 1..i_product_info_tab.count loop
   --dbms_output.put_line(i_prod_type(i));
-  product.product_pkg.p_ins_product(i_product_info_tab(i).product_name,i_product_info_tab(i).prod_type_no,i_product_info_tab(i).col_no);
+  product.product_pkg.p_ins_product(
+      p_product_name => i_product_info_tab(i).product_name,
+      p_prod_type_no => i_product_info_tab(i).prod_type_no,
+      p_col_no       => i_product_info_tab(i).col_no,
+      o_status       => v_status,
+      o_message      => v_message
+  );
+      DBMS_OUTPUT.PUT_LINE('Row ' || i ||' | Status = ' || v_status ||' | Message = ' || v_message);
   end loop;
 END;
 /

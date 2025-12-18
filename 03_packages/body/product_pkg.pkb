@@ -1,4 +1,3 @@
-
 create or replace PACKAGE BODY         product_pkg
 
 AS
@@ -6,7 +5,9 @@ AS
 
     /* **************************Create Product Type************************************************ */
   PROCEDURE p_ins_product_type (
-  p_prod_type_name VARCHAR2
+  p_prod_type_name VARCHAR2,
+    o_status         OUT NUMBER,
+  o_message        OUT VARCHAR2
 )
 
 IS
@@ -42,11 +43,14 @@ BEGIN
     VALUES (
       trim((p_prod_type_name))
     );
-
+  o_status := 1;
+  o_message := 'SUCCESS';
         EXCEPTION
       WHEN OTHERS THEN
       -- Captures exceptions and logs error details into product_log_t for auditing and troubleshooting
         l_err_msg := SQLCODE|| ' : '||SQLERRM;
+       o_status := 0;
+       o_message := SQLERRM;
         INSERT INTO product.product_log_t (
           module_name,
           input_value,
@@ -64,7 +68,9 @@ BEGIN
 
     /* **************************Create Colour****************************************************** */
   PROCEDURE p_ins_colour (
-  p_col_name VARCHAR2
+  p_col_name VARCHAR2,
+  o_status OUT NUMBER,
+  o_message OUT VARCHAR2
 )
 IS
   l_cnt NUMBER;
@@ -99,9 +105,13 @@ BEGIN
     VALUES (
       p_col_name
     );
+      o_status := 1;
+  o_message := 'SUCCESS';
     EXCEPTION
       WHEN OTHERS THEN
       --Captures exceptions and logs error details into product_log_t for auditing and troubleshooting
+          o_status := 0;
+          o_message := SQLERRM;
         l_err_msg := SQLCODE|| ' : '||SQLERRM;
         INSERT INTO product.product_log_t (
           module_name,
@@ -120,7 +130,9 @@ BEGIN
     /* **************************Create Product Informations**************************************** */
   PROCEDURE p_ins_product(  p_product_name IN VARCHAR2,
   p_prod_type_no IN NUMBER,
-  p_col_no IN NUMBER)
+  p_col_no IN NUMBER,
+  o_status OUT NUMBER,
+  o_message OUT VARCHAR2)
 IS
   l_cnt number:=0;
   l_prod_prodt_cnt number:=0;
@@ -223,10 +235,13 @@ BEGIN
       else
        null;
       END IF;
-
+  o_status := 1 ;
+  o_message := 'SUCCESS';
           EXCEPTION
       WHEN OTHERS THEN
       --Captures exceptions and logs error details into product_log_t for auditing and troubleshooting
+        o_status := 0;
+     o_message := SQLERRM;
         l_err_msg := SQLCODE|| ' : '||SQLERRM;
         INSERT INTO product.product_log_t (
           module_name,
