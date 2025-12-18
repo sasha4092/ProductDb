@@ -18,7 +18,7 @@ These scripts are intended for **development, testing, and deployment** in Oracl
 
 ## Folder Structure
 │                                                                                                                                                                        
-├── 01_ddl/ # Table, sequence, and type creation scripts                                                                                                                 
+├── 01_ddl/ # Table creation scripts                                                                                                                 
 │ ├── tables/                                                                                                                                                            
 │                                                                                                                                                                        
 ├── 02_dml/ # Master/reference data inserts                                                                                                                              
