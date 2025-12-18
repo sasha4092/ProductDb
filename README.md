@@ -30,9 +30,9 @@ These scripts are intended for **development, testing, and deployment** in Oracl
 │ ├── spec/                                                                                                                                                              
 │ └── body/                                                                                                                                                              
 │                                                                                                                                                                        
-├── 05_users/ # User privileges and roles
+├── 05_users/ # User privileges and roles                                                                                                                                
 │                                                                                                                                                                        
-├── 06_rollback/ # Drop/revert scripts for rollback
+├── 06_rollback/ # Drop/revert scripts for rollback                                                                                                                      
 │                                                                                                                                                                        
-└── 07_test/ # Test scripts for manual verification
+└── 07_test/ # Test scripts for manual verification 
 
