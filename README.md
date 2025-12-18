@@ -5,11 +5,10 @@
 This repository contains all database scripts for the **PRODUCT** schema, including:
 
 - Table creation
-- Sequence and object type creation
 - Package specifications and bodies
 - Views
 - Master/reference data inserts
-- Transaction logging
+- User creation
 - Rollback scripts
 - Test scripts
 
