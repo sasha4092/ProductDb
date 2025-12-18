@@ -18,20 +18,19 @@ These scripts are intended for **development, testing, and deployment** in Oracl
 
 ## Folder Structure
 │                                                                                                                                                                        
-├── 01_ddl/ # Table creation scripts                                                                                                                 
-│ ├── tables/                                                                                                                                                            
+├── 01_ddl/ # Tables,Views creation scripts                                                                                                                 
+│ ├── tables/ 
+│ ├── views/    
 │                                                                                                                                                                        
 ├── 02_dml/ # Master/reference data inserts                                                                                                                              
 │                                                                                                                                                                        
-├── 03_views/ # View creation scripts                                                                                                                                    
-│                                                                                                                                                                        
-├── 04_packages/ # PL/SQL package specs and bodies                                                                                                                       
+├── 03_packages/ # PL/SQL package specs and bodies                                                                                                                       
 │ ├── spec/                                                                                                                                                              
 │ └── body/                                                                                                                                                              
 │                                                                                                                                                                        
-├── 05_users/ # User privileges and roles                                                                                                                                
+├── 04_users/ # User privileges and roles                                                                                                                                
 │                                                                                                                                                                        
-├── 06_rollback/ # Drop/revert scripts for rollback                                                                                                                      
+├── 05_rollback/ # Drop/revert scripts for rollback                                                                                                                      
 │                                                                                                                                                                        
-└── 07_test/ # Test scripts for manual verification 
+└── 06_test/ # Test scripts for manual verification 
 
