@@ -1,4 +1,0 @@
---Create and Grant role for the product user for create objects in database
---Run as system user 
---CREATE USER product IDENTIFIED BY 'Specify the password here while executing';
---GRANT CONNECT, RESOURCE ,CREATE TABLE,CREATE VIEW,CREATE SEQUENCE ,CREATE PROCEDURE,CREATE TYPE,CREATE TRIGGER,CREATE SYNONYM,CREATE MATERIALIZED VIEW,CREATE DATABASE LINK  TO PRODUCT;
