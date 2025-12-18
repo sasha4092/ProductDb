@@ -18,21 +18,21 @@ These scripts are intended for **development, testing, and deployment** in Oracl
 ---
 
 ## Folder Structure
-│
+│                                                                                                                                                                        
 ├── 01_ddl/ # Table, sequence, and type creation scripts
 │ ├── tables/
-│
+│                                                                                                                                                                        
 ├── 02_dml/ # Master/reference data inserts
-│
+│                                                                                                                                                                        
 ├── 03_views/ # View creation scripts
-│
+│                                                                                                                                                                        
 ├── 04_packages/ # PL/SQL package specs and bodies
 │ ├── spec/
 │ └── body/
-│
+│                                                                                                                                                                        
 ├── 05_users/ # User privileges and roles
-│
+│                                                                                                                                                                        
 ├── 06_rollback/ # Drop/revert scripts for rollback
-│
+│                                                                                                                                                                        
 └── 07_test/ # Test scripts for manual verification
 
